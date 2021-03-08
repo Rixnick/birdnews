@@ -1,0 +1,99 @@
+<%- include('../layouts/Header')%>
+<%- include('../layouts/Navigation')%>
+<%- include('../layouts/Sidebar')%>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">ຟອມສ້າງຂ່າວສານ</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/admin/trends">ກັບຄືນ</a></li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+   <!-- Main content -->
+   <section class="content">
+    <div class="container-fluid">
+       <!-- general form elements -->
+       <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">ຟອມສ້າງຂ່າວສານ</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="/admin/trends/add-trend" enctype="multipart/form-data" method="post">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputFile">ຮູບພາບ</label>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" name="imagefile" id="formFile" accept="image/jpg, image/jpeg, image/png"/>
+                  <img src="#" id="imgPreview" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6 mb-4">
+                <label for="author">Author:</label>
+                <input type="text" class="form-control" id="author" name="author" placeholder="Enter Author name" disabled>
+              </div>
+              <div class="form-group col-md-6 mb-4">
+                <label for="title">ຫົວຂໍ້ຂ່າວ:</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" required>
+              </div>
+
+              <div class="form-group col-md-12 mb-4">
+                <label for="subtitle">ຫົວຂໍ້ລະອຽດ:</label>
+                <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Enter Title" required>
+              </div>
+
+              <div class="form-group col-md-12 mb-4">
+                <label for="subtitle">ລາຍລະອຽດ:</label>
+                <textarea id="summernote" ontenteditable="true" name="desc" required></textarea>
+              </div>
+              <div class="form-group col-md-6 mb-4">
+                <div class="form-group">
+                  <label>ກະລຸນາເລຶອກປະເພດຂ່າວ</label>
+                  <select class="form-control select2bs4" style="width: 100%;">
+                    <% category.forEach(function(cate) { %>
+                      <option value="<%= cate.id %>"><%- cate.title %></option>
+                    <% }) %>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group col-md-6 mb-4">
+                <div class="form-group">
+                  <label for="tags">ຫມວດຂ່າວ:</label>
+                  <select class="select2" multiple="multiple" data-placeholder="Select Tags" style="width: 100%;">
+                    <% tags.forEach(function(tag){%>
+                      <option value="<%= tag.id %>"><%- tag.title %></option>
+                    <% }); %>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+ 
+<%- include('../layouts/Footer')%>

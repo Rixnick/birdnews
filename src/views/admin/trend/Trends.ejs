@@ -1,0 +1,78 @@
+<%- include('../layouts/Header')%>
+<%- include('../layouts/Navigation')%>
+<%- include('../layouts/Sidebar')%>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">ຂ່າວຍອດນິຍົມ</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/admin/trends/add-trend">ສ້າງຂ່າວໃຫມ່</a></li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+   <!-- Main content -->
+   <section class="content">
+     <!-- <p></p> -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">ຂ່າວທັງຫມົດ</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Title</th>
+                  <th>Subtitle</th>
+                  <th>Category</th>
+                  <th>Tags</th>
+                  <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <% trends.forEach(function(trend){ %>
+                    <tr>
+                      <td>
+                        <img src="data:image/<%= trend.image.contentType%>;base64, <%= trend.image.data.toString('base64')%>" alt="" width="105px" height="95px">
+                      </td>
+                      <td><%= trend.title %></td>
+                      <td><%= trend.subtitle %></td>
+                      <td><%= trend.category %></td>
+                      <td><%= trend.tag %></td>
+                      <td>
+                        <a href="/admin/trends/view/<%= trend._id %>">Edit</a>
+                        <a class="confirmDetetion" href="/admin/trends/delete/<%= trend._id %>">Delete</a>
+                      </td>
+                    </tr>
+                  <% }) %>
+                    
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>  
+<%- include('../layouts/Footer')%>

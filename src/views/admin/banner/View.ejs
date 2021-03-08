@@ -1,0 +1,90 @@
+<%- include('../layouts/Header')%>
+<%- include('../layouts/Navigation')%>
+<%- include('../layouts/Sidebar')%>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Banner Views</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/admin/banners">ກັບຄືນ</a></li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+   <!-- Main content -->
+   <section class="content">
+    <div class="container-fluid">
+       <!-- general form elements -->
+       <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Banner Information Form</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="/admin/banners/update-banner/<%= id %>" enctype="multipart/form-data" method="post">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputFile">ຮູບພາບ</label>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input 
+                      type="file" 
+                      name="imagefile" 
+                      accept="image/jpg, image/jpeg, image/png, image/svg+xml, application/pdf"
+                    />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6 mb-4">
+                <label for="author">Index Number</label>
+                <input type="text" class="form-control" id="index" name="index" value="<%= index %>" placeholder="Enter Index number" disabled>
+              </div>
+              <div class="form-group col-md-6 mb-4">
+                <label for="title">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= name %>" placeholder="Enter Banner name" required>
+              </div>
+
+              <div class="form-group col-md-6 mb-4">
+                <label for="cate">Types</label>
+                <input type="text" class="form-control" id="types" name="types" value="<%= types %>" placeholder="Enter Types" required>
+              </div>
+              <div class="form-group col-md-6 mb-4">
+                <label for="tags">Website</label>
+                <input type="text" class="form-control" id="webs" name="webs" value="<%= webs %>" placeholder="Enter Web Site" required>
+              </div>
+
+              <div class="form-group col-md-6 mb-4">
+                <label for="cate">Contact</label>
+                <input type="text" class="form-control" id="contact" name="contact" value="<%= contact %>" placeholder="Enter Contact No." required>
+              </div>
+              <div class="form-group col-md-6 mb-4">
+                <label for="tags">Expire</label>
+                <input type="date" class="form-control" id="expired" name="expired" value="<%= expired %>" placeholder="Enter expired date" required>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+ 
+<%- include('../layouts/Footer')%>

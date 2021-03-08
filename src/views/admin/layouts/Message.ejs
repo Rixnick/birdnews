@@ -1,0 +1,7 @@
+<% if(typeof errors != 'undefined') { %>
+  <% errors.forEach(function(error) { %>
+    <button type="button" class="btn btn-success swalDefaultSuccess">
+      <%= error.msg %>
+    </button>
+  <%  });  %>
+<% } %>

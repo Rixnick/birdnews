@@ -1,0 +1,68 @@
+<%- include('./partials/Header')%> 
+<%- include('./partials/Navigation')%>
+<!--================Blog Area =================-->
+<section class="blog_area section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mb-5 mb-lg-0">
+        <div class="blog_left_sidebar">
+          <% blogs.forEach(function(blog){ %>
+            <article class="blog_item">
+              <div class="blog_item_img">
+                <img
+                  class="card-img rounded-0"
+                  src="data:image/<%= blog.image.contentType%>;base64, <%= blog.image.data.toString('base64')%>"
+                  alt=""
+                />
+                <a href="#" class="blog_item_date">
+                  <p>Posted: <%= blog.createAt.toLocaleDateString() %></p>
+                </a>
+              </div>
+  
+              <div class="blog_details">
+                <a class="d-inline-block" href="/blogs/<%= blog.id %>">
+                  <h2><%= blog.title %></h2>
+                </a>
+                <p><%- blog.subtitle %></p>
+                <ul class="blog-info-link">
+                  <li>
+                    <a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-comments"></i> 03 Comments</a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          <% }) %>
+          <nav class="blog-pagination justify-content-center d-flex">
+            <ul class="pagination">
+              <li class="page-item">
+                <a href="#" class="page-link" aria-label="Previous">
+                  <i class="ti-angle-left"></i>
+                </a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link">1</a>
+              </li>
+              <li class="page-item active">
+                <a href="#" class="page-link">2</a>
+              </li>
+              <li class="page-item">
+                <a href="#" class="page-link" aria-label="Next">
+                  <i class="ti-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <%- include('./partials/BlogSide') %>
+    </div>
+  </div>
+</section>
+<!--================Blog Area =================-->
+
+
+<%- include('./partials/Footer') %>

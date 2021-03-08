@@ -1,0 +1,93 @@
+<%- include('../layouts/Header')%>
+<%- include('../layouts/Navigation')%>
+<%- include('../layouts/Sidebar')%>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">ຟອມສ້າງບົດຄວາມ</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/admin/blogs">ກັບຄືນ</a></li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+   <!-- Main content -->
+   <section class="content">
+    <div class="container-fluid">
+       <!-- general form elements -->
+       <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">ຟອມສ້າງບົດຄວາມ</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="/admin/blogs/add-blog" enctype="multipart/form-data" method="post">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputFile">ຮູບພາບ</label>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input 
+                    type="file" 
+                    name="imagefile" 
+                    id="formFile"
+                    accept="image/jpg, image/jpeg, image/png, image/svg+xml"
+                    />
+                  <img src="#" id="imgPreview" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="form-group col-md-6 mb-4">
+                <label for="author">Author:</label>
+                <input type="text" class="form-control" id="author" name="author" placeholder="Enter Author name" disabled>
+              </div>
+              <div class="form-group col-md-6 mb-4">
+                <label for="title">ຫົວຂໍ້ບົດຄວາມ:</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" required>
+              </div>
+
+              <div class="form-group col-md-12 mb-4">
+                <label for="title">ຫົວຂໍ້ບົດຄວາມເຕັ່ມ:</label>
+                <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Enter Sub" required>
+              </div>
+
+              <div class="form-group col-md-12 mb-4">
+                <label for="subtitle">ລາຍລະອຽດ:</label>
+                <textarea id="summernote" ontenteditable="true" name="desc" required></textarea>
+              </div>
+              <div class="form-group col-md-6 mb-4">
+                <label for="cate">ປະເພດຂ່າວ:</label>
+                <input type="text" class="form-control" id="category" name="category" placeholder="Category" required>
+              </div>
+              <div class="form-group col-md-6 mb-4">
+                <label for="tags">ຫມວດຂ່າວ:</label>
+                <input type="text" class="form-control" id="tags" name="tag" placeholder="Enter Tags" required>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+ 
+<%- include('../layouts/Footer')%>
